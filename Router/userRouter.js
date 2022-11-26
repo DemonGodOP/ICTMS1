@@ -9,10 +9,6 @@ userRouter.use(cookieParser())
 const jwt=require('jsonwebtoken');
 const JWT_KEY='kghjhv4j34hj3v4';
 
-userRouter
-.route('/signup')
-.get(getSignUp)
-.post(postSignup);
 
 userRouter
 .route('/host')
@@ -71,6 +67,11 @@ userRouter
 userRouter
 .route("/homepage")
 .get(protectRoute,homepage)
+
+userRouter
+.route('/')
+.get(getSignUp)
+.post(postSignup);
 
 function homepage(req,res){
     res.sendFile('Homepage.html',{root:__dirname});
