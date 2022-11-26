@@ -16,7 +16,7 @@ const userRouter=require('./Router/userRouter');
 
 const cookieParser=require('cookie-parser');
 
-app.use("/user",userRouter);
+app.use("/",userRouter);
 
 app.use(cookieParser());
 
