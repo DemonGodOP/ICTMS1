@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Hosting Form</title>
+  <style>
+    body {
+  font-family: "Raleway", sans-serif;
+  background-color: #ff6655;
+}
+h1 {
+  text-align: center;
+  margin: 20px auto;
+}
+form {
+  width: 70%;
+  margin: auto;
+}
+fieldset {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin: 20px auto;
+  box-shadow: 0 0 5px #333;
+  background-color: #eee;
+}
+label {
+  display: block;
+  
+  margin-bottom: 5px;
+}
+input[type="text"]{
+  width: calc(100% - 20px);
+  height: 20px;
+  padding: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+button {
+  width: 100%;
+  text-align: center;
+  margin: auto important;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #eee;
+  opacity:0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+  </style>
+</head>
+<body>
+    <div id="event-registration">
+        <h1>Registration</h1>
+        <form id="event-registration-form">
+          <fieldset>
+            <h3>Personal Information</h3>
+            <label for="Event_Name">Event Name</label>
+            <input type="text" id="Name" name="Event_Name" required>
+            <label for="Event_Type">Event Type</label>
+            <input type="text" id="Type" name="Event_Type" required>
+            <label for="Event_Schedule">Event Schedule</label>
+            <input type="text" id="Schedule" name="Event_Schedule" required>
+            <label for="Eligibility_Criteria">Eligibility Criteria</label>
+            <input type="text" id="Criteria" name="Eligibility Criteria" required>
+            </div>
+          </fieldset>
+          <button type="button">Submit Form</button>
+        </form>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+       <script>
+       let btn=document.querySelector('button');
+       btn.addEventListener('click',async function(e){
+          
+          e.preventDefault();
+
+          let Event_Name=document.querySelector("input[id='Name']").value;
+          let Event_Type=document.querySelector("input[id='Type']").value;
+          let Event_Schedule=document.querySelector("input[id='Schedule']").value;
+          let Eligibility_Criteria=document.querySelector("input[id='Criteria']").value;
+          if(!Event_Name || !Event_Type|| !Event_Schedule || !Eligibility_Criteria){
+            alert("Incomplete Form");
+          }
+          else{
+          let resp=await axios.post('/user/host',{Event_Name,Event_Type,Event_Schedule,Eligibility_Criteria});
+          console.log('resp',resp);
+          window.location.href="http://localhost:3000/user/homepage"
+          alert("Event Hosted: Check The Registration Page.");
+          }
+       })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Event Registration Form.</title>
+  <style>
+    body {
+  font-family: "Raleway", sans-serif;
+  background-color: #ff6655;
+}
+h1 {
+  text-align: center;
+  margin: 20px auto;
+}
+form {
+  width: 70%;
+  margin: auto;
+}
+fieldset {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin: 20px auto;
+  box-shadow: 0 0 5px #333;
+  background-color: #eee;
+}
+label {
+  display: block;
+  
+  margin-bottom: 5px;
+}
+input[type="text"]{
+  width: calc(100% - 20px);
+  height: 20px;
+  padding: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+button {
+  width: 100%;
+  text-align: center;
+  margin: auto important;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #eee;
+  opacity:0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+  </style>
+</head>
+<body>
+    <div id="event-registration">
+        <h1>Registration</h1>
+        <form action="" id="event-registration-form">
+          <fieldset>
+            <h3>Personal Information</h3>
+            <label for="name">Name</label>
+            <input type="text" id="Name" name="Name" required>
+            <label for="Event name">Event Name</label>
+            <input type="text" id="Event Name" name="Event Name" required>
+            <label for="College Name">College Name</label>
+            <input type="text" id="College Name" name="College Name" required>
+            <label for="Team Name">Team Name</label>
+            <input type="text" id="Team Name" name="Team Name" required>
+            <label for="College Id Proof">College Id Proof</label>
+            <input type="text" id="College Id Proof" name="College Id Proof" required>
+            </div>
+          </fieldset>
+          <button type="button">Submit Form</button>
+        </form>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+       <script>
+       let btn=document.querySelector('button');
+       btn.addEventListener('click',async function(e){
+          
+          e.preventDefault();
+
+          let Name=document.querySelector("input[id='Name']").value;
+          let Event_Name=document.querySelector("input[id='Event Name']").value;
+          let College_Name=document.querySelector("input[id='College Name']").value;
+          let Team_Name=document.querySelector("input[id='Team Name']").value;
+          let College_ID_Proof=document.querySelector("input[id='College Id Proof']").value;
+          if(!Name || !Event_Name || !College_Name || !Team_Name || !College_ID_Proof){
+            alert("Incomplete Form");
+          }
+          else{
+          let resp=await axios.post('/user/register',{Name,Event_Name,College_Name,Team_Name,College_ID_Proof});
+          console.log('resp',resp);
+          window.location.href="http://localhost:3000/user/homepage"
+          alert("registered");
+          }
+       })
+      
+  </script>
+</body>
+
+</html>
