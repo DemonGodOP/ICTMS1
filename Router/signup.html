@@ -108,9 +108,9 @@ button:hover {
             alert("Please Fill All the Details Before Submitting");
           }
           else{
-          let resp=await axios.post('/user/signup',{email,username,role,password,confirmPassword});
+          let resp=await axios.post('/',{email,username,role,password,confirmPassword});
           console.log('resp',resp);
-          window.location.href="http://localhost:3000/user/login"
+          window.location.href="http://localhost:3000/login"
           }
        })
   </script>
