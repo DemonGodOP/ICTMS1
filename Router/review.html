@@ -103,10 +103,10 @@ input[type=submit]:hover {
             alert("Incomplete Form");
           }
           else{
-          let resp=await axios.post('/user/createReview',{name,review});
+          let resp=await axios.post('/createReview',{name,review});
           console.log('resp',resp);
     
-          window.location.href="http://localhost:3000/user/homepage"
+          window.location.href="http://localhost:3000/homepage"
           alert("FeedBack sent");
           }
        })
