@@ -68,7 +68,7 @@ button:hover {
   <script>
        let btn2=document.getElementById('btn2');
        btn2.addEventListener('click',async function(e){
-          let resp=await axios.get("/user/getTournament");
+          let resp=await axios.get("/getTournament");
           for(let i=0;i<Object.keys(resp.data.data).length;i++){
           document.getElementById("this").innerHTML += '<h2>' + 'Event Name: ' + resp.data.data[i].Event_Name + '</h2>'
           document.getElementById("this").innerHTML += '<p>' + 'Event Type: ' + resp.data.data[i].Event_Type + '</p>'
