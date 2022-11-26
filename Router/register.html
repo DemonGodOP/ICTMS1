@@ -90,9 +90,9 @@ button:hover {
             alert("Incomplete Form");
           }
           else{
-          let resp=await axios.post('/user/register',{Name,Event_Name,College_Name,Team_Name,College_ID_Proof});
+          let resp=await axios.post('/register',{Name,Event_Name,College_Name,Team_Name,College_ID_Proof});
           console.log('resp',resp);
-          window.location.href="http://localhost:3000/user/homepage"
+          window.location.href="http://localhost:3000/homepage"
           alert("registered");
           }
        })
