@@ -88,9 +88,9 @@ button:hover {
             alert("Incomplete Form");
           }
           else{
-          let resp=await axios.post('/user/host',{Event_Name,Event_Type,Event_Schedule,Eligibility_Criteria});
+          let resp=await axios.post('/host',{Event_Name,Event_Type,Event_Schedule,Eligibility_Criteria});
           console.log('resp',resp);
-          window.location.href="http://localhost:3000/user/homepage"
+          window.location.href="http://localhost:3000/homepage"
           alert("Event Hosted: Check The Registration Page.");
           }
        })
