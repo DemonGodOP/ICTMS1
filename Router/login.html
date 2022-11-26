@@ -104,11 +104,11 @@ span.psw {
             alert("Please Fill All the Details in order to Login");
           }
           else{
-          let resp=await axios.post('/user/login',{email,password});
+          let resp=await axios.post('/login',{email,password});
           console.log('resp',resp);
     
           if(resp.data.data==1){
-          window.location.href="http://localhost:3000/user/homepage"
+          window.location.href="http://localhost:3000/homepage"
           }
           else{
             alert("Wrong Credentials Entered");
