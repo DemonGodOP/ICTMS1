@@ -338,9 +338,7 @@ function isAuthorised(roles){
 
 function logout(req,res){
     res.cookie('login','',{maxAge:1});
-    res.json({
-        message:"user logged out succesfully"
-    });
+    res.sendFile('signup.html',{root:__dirname})
 }
 
 async function getAllReviews(req,res){
